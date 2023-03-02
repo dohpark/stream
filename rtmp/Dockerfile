@@ -1,6 +1,7 @@
 FROM tiangolo/nginx-rtmp
 
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY index.html /www/index.html
 
 RUN apt-get -y update
 RUN apt-get -y upgrade
