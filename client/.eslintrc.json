@@ -1,7 +1,10 @@
 {
   // You might want to additionally set this in monorepos where Next.js app is in a subdir
   "root": true,
-  "extends": ["next/core-web-vitals"],
+  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript", "prettier"],
+  "parserOptions": {
+    "project": "./client/tsconfig.json"
+  },
   "overrides": [
     {
       // Adapt to your needs (e.g. some might want to only override "next.config.js")
@@ -12,5 +15,28 @@
         "ecmaVersion": 2020
       }
     }
-  ]
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "": "never",
+        "js": "never",
+        "jsx": "never",
+        "ts": "always",
+        "tsx": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
 }
